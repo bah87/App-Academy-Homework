@@ -11,7 +11,6 @@ class Stack
   
   def remove 
     @stack.pop
-    @stack
   end 
   
   def show
