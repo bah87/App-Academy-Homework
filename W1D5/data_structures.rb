@@ -46,6 +46,29 @@ class Map
     end 
   end
   
+  def lookup(key)
+    @map.each do |arr|
+      return arr.last if arr.first == key
+    end 
+    
+    puts "#{key} does not exist as a key in the map."
+  end
+  
+  def remove(key)
+    pos = position(key)
+    if pos.nil?
+      puts "#{key} does not exist as a key in the map."
+    else 
+      @map.delete_at(pos)
+    end
+  end
+  
+  def show
+    @map.inspect
+  end
+  
+  private 
+  
   def position(key)
     @map.each_with_index do |arr, idx|
       return idx if arr.first == key 
@@ -53,21 +76,5 @@ class Map
     
     nil
   end
-  
-  def lookup(key)
-    @map.each do |arr|
-      return arr.last if arr.first == key
-    end 
-    
-    puts "#{key} does not exist in the map."
-  end
-  
-  def remove(key)
-    pos = position(key)
-    @map.delete_at(pos) unless pos.nil?
-  end
-  
-  def show
-    @map.inspect
-  end
 end
+
