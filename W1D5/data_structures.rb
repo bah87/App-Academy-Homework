@@ -42,7 +42,7 @@ class Map
     if pos.nil?
       @map << [key, value]
     else 
-      @map[pos].last = value
+      @map[pos] = [key, value]
     end 
   end
   
@@ -68,6 +68,10 @@ class Map
   end
   
   private 
+  
+  def []=(pos, value)
+    @map[pos][1] = value
+  end 
   
   def position(key)
     @map.each_with_index do |arr, idx|
