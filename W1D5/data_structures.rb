@@ -19,13 +19,22 @@ class Stack
 end
 
 class Queue
+  attr_reader :queue 
+  
+  def initialize(queue=[])
+    @queue = queue 
+  end
+  
   def enqueue(el)
+    @queue.push(el)
   end 
   
   def dequeue
+    @queue.shift
   end 
   
   def show
+    @queue.inspect
   end
 end
 
